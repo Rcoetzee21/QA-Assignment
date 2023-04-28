@@ -1,0 +1,37 @@
+{
+  "name": "qa-assignment",
+  "version": "1.0.0",
+  "description": "Young Capital QA assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "full-regression-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature'",
+    "full-regression-headless-chrome": "cypress run --browser chrome --spec 'cypress/e2e/*.feature'",
+    "registration-tests-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/Registration.feature'",
+    "registration-tests-headless-chrome": "cypress run --browser chrome --spec 'cypress/e2e/Registration.feature'",
+    "edit-tests-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/Edit.feature'",
+    "edit-tests-headless-chrome": "cypress run --browser chrome --spec 'cypress/e2e/Edit.feature'",
+    "delete-tests-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/Delete.feature'",
+    "delete-tests-headless-chrome": "cypress run --browser chrome --spec 'cypress/e2e/Delete.feature'"
+  },
+  "author": "Ross Coetzee",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress": "^12.11.0",
+    "ts-loader": "^9.4.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/support/step_definitions/**/*.js",
+    "html":{
+      "enabled": true,
+      "output" : "cypress/reports/cucumber-html/cucumber-report.html"
+    },
+    "messages":{
+    "enabled": true,
+    "output" : "cypress/reports/cucumber-ndjson/cucumber-report.ndjson"
+    } 
+
+  }
+}
